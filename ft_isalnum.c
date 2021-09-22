@@ -6,12 +6,11 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 16:29:15 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/22 16:29:17 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/22 17:09:40 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {
