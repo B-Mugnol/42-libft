@@ -6,13 +6,14 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 17:45:45 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/23 21:18:33 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/23 21:37:12 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <stdio.h>
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
