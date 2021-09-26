@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 15:23:16 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/26 14:48:14 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/26 15:25:01 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t size)
 			return (*(cast_s1 + i) - *(cast_s2 + i));
 		i++;
 	}
-	if (*(cast_s1 + i) == '\0' || *(cast_s2 + i) == '\0')
+	if (i < size && (*(cast_s1 + i) == '\0' || *(cast_s2 + i) == '\0'))
 		return (*(cast_s1 + i) - *(cast_s2 + i));
 	return (0);
 }
