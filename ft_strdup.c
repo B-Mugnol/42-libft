@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 15:30:22 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/26 16:02:10 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/26 16:05:26 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strdup(const char *s)
 {
-	char 	*dest;
+	char	*dest;
 	size_t	len;
 
 	len = ft_strlen(s);
