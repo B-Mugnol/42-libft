@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 13:28:33 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/27 14:48:57 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/27 17:51:01 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (s_len - start < len)
 		len = s_len - start;
 	substr = (char *)(ft_calloc(len + 1, sizeof (char)));
-	if (substr == NULL)
-		return (NULL);
+	if (substr == NULL || *substr == NULL)
+		return (substr);
 	i = 0;
 	while (i < len)
 	{
