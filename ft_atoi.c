@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 16:08:00 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/26 16:40:48 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/27 23:37:53 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ int	ft_atoi(const char *s)
 {
 	int	sign;
 	int	num;
+	int	count;
 
 	num = 0;
+	count = 0;
 	sign = 1;
 	while (ft_isspace(*s))
 		s++;
@@ -38,7 +40,16 @@ int	ft_atoi(const char *s)
 	while (*s >= '0' && *s <= '9')
 	{
 		num = 10 * num + *s - '0';
+		count++;
 		s++;
 	}
+	if (count == 10 && num <= -2147483647 && sign == 1)
+		return (2147483647);
+	if (count == 10 && num < -2147483647 && sign == -1)
+		return (-2147483648);
+	if (count > 10 && sign == 1)
+		return (2147483647);
+	if (count > 10 && sign == -1)
+		return (-2147483648);
 	return (num * sign);
 }
