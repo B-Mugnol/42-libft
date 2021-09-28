@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 15:30:22 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/27 17:57:10 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/27 22:11:00 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s)
 	size_t	len;
 
 	len = ft_strlen(s);
-	dest = (char *)(ft_calloc((len + 1), sizeof (char)));
+	dest = ft_calloc((len + 1), sizeof (char));
 	if (dest == NULL)
 		return (NULL);
 	return (ft_memmove(dest, s, len + 1));
