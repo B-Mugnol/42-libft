@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 13:24:20 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/29 22:04:28 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/29 22:35:16 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,9 @@ char	**ft_split(char const *s, char c)
 	char	**dest;
 	size_t	word_count;
 
-	if (!*s)
-		word_count = 0;
-	else
-		word_count = count_words(s, c, ft_strlen(s));
+	if (!s)
+		return (NULL);
+	word_count = count_words(s, c, ft_strlen(s));
 	dest = ft_calloc(word_count + 1, sizeof (char *));
 	if (!dest)
 		return (NULL);
