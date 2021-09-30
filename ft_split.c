@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 13:24:20 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/29 21:17:19 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/29 22:04:28 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,10 @@ static char	**populate(char **dest, char const *s, char c, size_t word_count)
 	char	*split_char;
 	size_t	i;
 
-	if (word_count != 0)
-	{
-		temp = ft_calloc(word_count, sizeof (char *));
-		if (!temp)
-			return (NULL);
-		temp[0] = ft_strtrim(s, &c);
-	}
+	temp = ft_calloc(word_count, sizeof (char *));
+	if (!temp)
+		return (NULL);
+	temp[0] = ft_strtrim(s, &c);
 	i = 0;
 	while (i < word_count)
 	{
@@ -78,8 +75,7 @@ static char	**populate(char **dest, char const *s, char c, size_t word_count)
 		}
 		else
 			dest[i] = ft_substr(temp[i], 0, split_char - temp[i]);
-		i++;
-		temp[i] = ft_strtrim(split_char, &c);
+		temp[++i] = ft_strtrim(split_char, &c);
 	}
 	free_matrix((void **)(temp), word_count);
 	dest[i] = NULL;
@@ -103,6 +99,8 @@ char	**ft_split(char const *s, char c)
 		dest[0] = ft_substr(s, 0, ft_strlen(s));
 		dest[1] = NULL;
 	}
+	else if (word_count == 0)
+		dest[0] = NULL;
 	else
 		dest = populate(dest, s, c, word_count);
 	if (!dest)
