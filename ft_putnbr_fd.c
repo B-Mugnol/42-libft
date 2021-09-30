@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/30 13:49:55 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/30 14:19:31 by bmugnol-         ###   ########.fr       */
+/*   Created: 2021/09/30 14:03:28 by bmugnol-          #+#    #+#             */
+/*   Updated: 2021/09/30 15:35:23 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+static int	ft_abs(int x)
 {
-	if (!s)
-		return ;
-	while (*s != '\0')
+	if (x < 0)
+		return (-x);
+	return (x);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	if (n / 10 == 0)
+		ft_putchar_fd(ft_abs(n % 10) + '0', fd);
+	else
 	{
-		ft_putchar_fd(*s, fd);
-		s++;
+		ft_putnbr_fd(ft_abs(n / 10), fd);
+		ft_putchar_fd(ft_abs(n % 10) + '0', fd);
 	}
 }
