@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 16:08:00 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/29 23:30:38 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/29 23:36:50 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	ft_atoi(const char *s)
 	{
 		num = 10 * num + *s - '0';
 		if (num >= 2147483647 && sign == 1)
-			return (2147483647);
+			return (0);
 		if (num >= 2147483648 && sign == -1)
-			return (-2147483648);
+			return (0);
 		s++;
 	}
 	return (num * sign);
