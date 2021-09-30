@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 13:28:33 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/29 22:20:42 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/29 22:30:42 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	s_len;
 	char	*substr;
 
+	if (!s)
+		return (NULL);
 	s_len = ft_strlen(s);
 	if (start > s_len)
 	{

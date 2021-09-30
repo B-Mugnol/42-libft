@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 15:09:11 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/29 22:21:57 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/09/29 22:32:16 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*s3;
 	size_t	size;
 
+	if (!s1 || !s2)
+		return (NULL);
 	size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	s3 = ft_calloc(size, sizeof (char));
 	if (!s3)
