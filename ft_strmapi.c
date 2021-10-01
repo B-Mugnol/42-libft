@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 13:28:47 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/30 13:36:47 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/10/01 14:27:36 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
-	char	*dest;
+	char			*dest;
 
 	if (!s)
 		return (NULL);
