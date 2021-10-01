@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 15:03:17 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/10/01 15:12:00 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/10/01 16:13:32 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	t_list	*last_new;
+
 	if (!new)
 		return ;
 	if (!lst)
-		*lst = ft_lstnew((*new).content);
+		*lst = new;
 	else
 	{
-		new -> next = *lst;
+		last_new = ft_lstlast(new);
+		(*last_new).next = *lst;
 		*lst = new;
 	}
 }
