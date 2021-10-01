@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 14:55:52 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/10/01 15:03:13 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/10/01 15:46:14 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*list;
+	t_list	*lst;
 
-	list = malloc(sizeof(t_list));
-	if (!list)
+	lst = malloc(sizeof(t_list));
+	if (!lst)
 		return (NULL);
-	list -> content = content;
-	list -> next = NULL;
-	return (list);
+	(*lst).content = content;
+	(*lst).next = NULL;
+	return (lst);
 }
