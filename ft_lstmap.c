@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 20:34:44 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/10/02 23:40:18 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/10/02 23:42:47 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*temp;
 	t_list	*new_lst;
 
-	if (!lst)
-		return (NULL);
 	new_lst = NULL;
 	while (lst)
 	{
