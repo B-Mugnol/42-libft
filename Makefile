@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/10/02 20:34:39 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/10/03 12:13:54 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,4 +54,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all norm clean fclean re
+.PHONY: all norm bonus clean fclean re
