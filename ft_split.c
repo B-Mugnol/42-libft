@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 13:24:20 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/10/08 11:57:09 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/10/08 12:20:13 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,24 @@ static size_t	count_not_char(char const *s, char c)
 	return (i);
 }
 
-// static void	free_matrix(void **m, size_t line_count)
-// {
-// 	size_t	i;
+static void	free_matrix(void **m, size_t line_count)
+{
+	size_t	i;
 
-// 	if (line_count == 0)
-// 		return ;
-// 	i = 0;
-// 	while (i < line_count)
-// 	{
-// 		free(m[i]);
-// 		i++;
-// 	}
-// 	free(m);
-// }
+	if (line_count == 0)
+		return ;
+	i = 0;
+	while (i < line_count)
+	{
+		free(m[i]);
+		i++;
+	}
+	free(m);
+}
 
 char	**ft_split(char const *s, char c)
 {
 	char	**dest;
-	size_t	valid_char_count;
 	size_t	i;
 	size_t	j;
 
@@ -77,9 +76,10 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (*(s + i) == '\0')
 			break ;
-		valid_char_count = count_not_char(s + i, c);
-		dest[j] = ft_substr(s, i, valid_char_count);
-		i += valid_char_count;
+		dest[j] = ft_substr(s, i, count_not_char(s + i, c));
+		if (!dest[j])
+			free_matrix((void *)(dest), j);
+		i += count_not_char(s + i, c);
 		j++;
 	}
 	dest[j] = NULL;
