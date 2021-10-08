@@ -6,103 +6,82 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 13:24:20 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/29 22:35:16 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/10/08 11:57:09 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_words(char const *s, char c, size_t len)
+static size_t	count_words(char const *s, char c)
 {
 	size_t	word_count;
-	size_t	c_count;
 	size_t	i;
 
 	if (!*s)
 		return (0);
-	i = 1;
-	c_count = 0;
+	i = 0;
 	word_count = 0;
-	while (i < len)
+	while (*(s + i) != '\0')
 	{
-		if (*(s + i - 1) == c)
-			c_count++;
-		if (*(s + i) == c && *(s + i - 1) != c)
+		if (*(s + i) != c && (*(s + i + 1) == c || *(s + i + 1) == '\0'))
 			word_count++;
 		i++;
 	}
-	if (c_count == len)
-		return (0);
-	if (*(s + i - 1) != c)
-		word_count++;
 	return (word_count);
 }
 
-static void	free_matrix(void **m, size_t line_count)
+static size_t	count_not_char(char const *s, char c)
 {
 	size_t	i;
 
-	if (line_count == 0)
-		return ;
+	if (!*s)
+		return (0);
 	i = 0;
-	while (i < line_count)
-	{
-		free(m[i]);
+	while (*(s + i) != '\0' && *(s + i) != c)
 		i++;
-	}
-	free(m);
+	return (i);
 }
 
-static char	**populate(char **dest, char const *s, char c, size_t word_count)
-{
-	char	**temp;
-	char	*split_char;
-	size_t	i;
+// static void	free_matrix(void **m, size_t line_count)
+// {
+// 	size_t	i;
 
-	temp = ft_calloc(word_count, sizeof (char *));
-	if (!temp)
-		return (NULL);
-	temp[0] = ft_strtrim(s, &c);
-	i = 0;
-	while (i < word_count)
-	{
-		split_char = ft_strchr(temp[i], c);
-		if (!split_char)
-		{
-			dest[i] = ft_substr(temp[i], 0, ft_strlen(temp[i]));
-			i++;
-			break ;
-		}
-		else
-			dest[i] = ft_substr(temp[i], 0, split_char - temp[i]);
-		temp[++i] = ft_strtrim(split_char, &c);
-	}
-	free_matrix((void **)(temp), word_count);
-	dest[i] = NULL;
-	return (dest);
-}
+// 	if (line_count == 0)
+// 		return ;
+// 	i = 0;
+// 	while (i < line_count)
+// 	{
+// 		free(m[i]);
+// 		i++;
+// 	}
+// 	free(m);
+// }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**dest;
-	size_t	word_count;
+	size_t	valid_char_count;
+	size_t	i;
+	size_t	j;
 
 	if (!s)
 		return (NULL);
-	word_count = count_words(s, c, ft_strlen(s));
-	dest = ft_calloc(word_count + 1, sizeof (char *));
+	dest = ft_calloc(count_words(s, c) + 1, sizeof (char *));
 	if (!dest)
 		return (NULL);
-	if (!c && *s)
+	i = 0;
+	j = 0;
+	while (*(s + i) != '\0')
 	{
-		dest[0] = ft_substr(s, 0, ft_strlen(s));
-		dest[1] = NULL;
+		while (*(s + i) == c && *(s + i) != '\0')
+			i++;
+		if (*(s + i) == '\0')
+			break ;
+		valid_char_count = count_not_char(s + i, c);
+		dest[j] = ft_substr(s, i, valid_char_count);
+		i += valid_char_count;
+		j++;
 	}
-	else if (word_count == 0)
-		dest[0] = NULL;
-	else
-		dest = populate(dest, s, c, word_count);
-	if (!dest)
-		return (NULL);
+	dest[j] = NULL;
 	return (dest);
 }
