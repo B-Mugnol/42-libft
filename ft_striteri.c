@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 13:39:27 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/30 13:44:09 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/10/11 18:19:28 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (*(s + i) != '\0')
 	{
-		(*f)(i, s + i);
+		f(i, s + i);
 		i++;
 	}
 }
