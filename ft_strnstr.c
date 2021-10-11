@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 14:55:10 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/29 22:17:52 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/10/11 18:43:26 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 	len_s2 = ft_strlen(s2);
 	if (len_s2 == 0)
 		return ((char *)(s1));
-	if (size == 0 || size < len_s2 || len_s1 == 0)
+	if (size < len_s2 || len_s1 == 0)
 		return (NULL);
 	i = 0;
 	while (i < size - len_s2 + 1 && *(s1 + i + len_s2 - 1) != '\0')
