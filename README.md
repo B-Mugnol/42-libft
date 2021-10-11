@@ -9,7 +9,7 @@ To recreate some functions found in certain C libraries, in some cases creating 
 
 
 ### How?
-By exhaustively checking the functions' documentation, utilizing its parameters and return values to recreate the described behavior (and adding 'ft_' to the functions' name).
+By exhaustively checking the functions' documentation, understanding its parameters and return values to recreate the described behavior (and adding 'ft_' to the functions' name).
 
 
 ### What?
