@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 11:39:53 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/30 13:27:29 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/10/11 17:30:59 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*ft_itoa(int n)
 	digit_count = count_digits(n);
 	if (n < 0)
 		is_negative = 1;
-	s = ft_calloc(digit_count + is_negative + 1, sizeof (char));
+	s = malloc((digit_count + is_negative + 1) * sizeof (char));
 	if (!s)
 		return (NULL);
 	i = 0;
