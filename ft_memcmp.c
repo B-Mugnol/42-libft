@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 14:34:44 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/26 14:51:04 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/10/11 18:02:54 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t size)
 	if (size == 0)
 		return (0);
 	i = 0;
-	while (i < size)
-	{
-		if (*(cast_s1 + i) - *(cast_s2 + i) != 0)
-			return (*(cast_s1 + i) - *(cast_s2 + i));
+	while (i < size - 1 && *(cast_s1 + i) == *(cast_s2 + i))
 		i++;
-	}
-	return (0);
+	return (*(cast_s1 + i) - *(cast_s2 + i));
 }
