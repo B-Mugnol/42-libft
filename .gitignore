@@ -1,5 +1,5 @@
-a.out
-*.o
-main.c
-libft.a
-libft.h.gch
+*
+!libft.h
+!ft_*.c
+!Makefile
+!.gitignore
