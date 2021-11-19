@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/11/19 22:36:26 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/11/19 22:39:28 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,12 @@ B_SRC	=	\
 	ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c	ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c		ft_lstclear.c	ft_lstiter.c	ft_lstmap.c
 B_OBJ = $(B_SRC:.c=.o)
 
-all: $(NAME)
+all: $(CHEADER) $(NAME)
 
 $(NAME): $(OBJ)
 	$(AR) $@ $^
 
-$(OBJ): $(SRC) $(CHEADER)
+$(OBJ): $(SRC)
 	$(CC) $(CFLAGS) -c $^
 
 $(CHEADER): $(HEADER)
