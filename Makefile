@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/11/19 22:30:32 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/11/19 22:32:53 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,8 +49,8 @@ bonus: $(OBJ) $(B_OBJ)
 $(B_OBJ): $(B_SRC) $(HEADER)
 	$(CC) $(CFLAGS) -c $^
 
-norm: $(SRC) $(B_SRC) $(HEADER)
-	norminette -R CheckForbiddenSourceHeader $^
+norm:
+	norminette -R CheckForbiddenSourceHeader $(SRC) $(B_SRC) $(HEADER)
 
 clean:
 	rm -rf $(OBJ) $(B_OBJ) $(CHEADER)
