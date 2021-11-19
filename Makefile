@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/11/19 21:12:59 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/11/19 22:30:32 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ CFLAGS	=		\
 AR		= 	ar rcs
 
 HEADER	=	libft.h
+CHEADER	=	libft.h.gch
 
 SRC		=		\
 	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c	ft_isprint.c	ft_toupper.c	ft_tolower.c\
@@ -52,7 +53,7 @@ norm: $(SRC) $(B_SRC) $(HEADER)
 	norminette -R CheckForbiddenSourceHeader $^
 
 clean:
-	rm -rf $(OBJ) $(B_OBJ)
+	rm -rf $(OBJ) $(B_OBJ) $(CHEADER)
 
 fclean: clean
 	rm -rf $(NAME)
