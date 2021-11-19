@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/11/18 18:31:18 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/11/19 21:12:59 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,19 +37,19 @@ B_OBJ = $(B_SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	$(AR) $@ $^
 
 $(OBJ): $(SRC) $(HEADER)
-	$(CC) $(CFLAGS) -c $(SRC) $(HEADER)
+	$(CC) $(CFLAGS) -c $^
 
 bonus: $(OBJ) $(B_OBJ)
-	$(AR) $(NAME) $(OBJ) $(B_OBJ)
+	$(AR) $(NAME) $^
 
-$(B_OBJ): $(B_SRC)
-	$(CC) $(CFLAGS) -c $(B_SRC)
+$(B_OBJ): $(B_SRC) $(HEADER)
+	$(CC) $(CFLAGS) -c $^
 
-norm: $(SRC)
-	norminette -R CheckForbiddenSourceHeader $(SRC) $(B_SRC) $(HEADER)
+norm: $(SRC) $(B_SRC) $(HEADER)
+	norminette -R CheckForbiddenSourceHeader $^
 
 clean:
 	rm -rf $(OBJ) $(B_OBJ)
