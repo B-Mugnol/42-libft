@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/11/19 22:32:53 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/11/19 22:36:26 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,13 +40,16 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(AR) $@ $^
 
-$(OBJ): $(SRC) $(HEADER)
+$(OBJ): $(SRC) $(CHEADER)
 	$(CC) $(CFLAGS) -c $^
+
+$(CHEADER): $(HEADER)
+	$(CC) $(CFLAGS) $<
 
 bonus: $(OBJ) $(B_OBJ)
 	$(AR) $(NAME) $^
 
-$(B_OBJ): $(B_SRC) $(HEADER)
+$(B_OBJ): $(B_SRC) $(CHEADER)
 	$(CC) $(CFLAGS) -c $^
 
 norm:
