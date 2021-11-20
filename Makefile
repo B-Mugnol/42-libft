@@ -6,22 +6,22 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/11/19 23:42:59 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/11/20 01:45:22 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
 
 CC		=	clang
-CFLAGS	=		\
-		-Wall	\
-		-Wextra	\
-		-Werror
+CFLAGS	=			\
+			-Wall	\
+			-Wextra	\
+			-Werror
 
 AR		= 	ar rcs
 
 HEADER	=	libft.h
-CHEADER	=	libft.h.gch
+CHEADER	=	$(HEADER:.h=.h.gch)
 
 SRC		=		\
 	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c	ft_isprint.c	ft_toupper.c	ft_tolower.c\
@@ -41,7 +41,7 @@ $(NAME): $(OBJ)
 	$(AR) $@ $^
 
 $(OBJ): $(SRC)
-	$(CC) $(CFLAGS) -c $^ -include $(HEADER)
+	$(CC) $(CFLAGS) -include $(HEADER) -c $^
 
 $(CHEADER): $(HEADER)
 	$(CC) $(CFLAGS) $^
