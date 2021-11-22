@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/11/20 01:45:22 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/11/22 16:48:54 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ AR		= 	ar rcs
 HEADER	=	libft.h
 CHEADER	=	$(HEADER:.h=.h.gch)
 
-SRC		=		\
+SRC		=	\
 	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c	ft_isprint.c	ft_toupper.c	ft_tolower.c\
 	ft_memset.c		ft_bzero.c		ft_memcpy.c		ft_memmove.c	ft_memchr.c	ft_memcmp.c\
 	ft_strlen.c		ft_strlcpy.c	ft_strlcat.c	ft_strchr.c		ft_strrchr.c	ft_strncmp.c	ft_strnstr.c	ft_strdup.c\
@@ -33,7 +33,7 @@ OBJ		=	$(SRC:.c=.o)
 
 B_SRC	=	\
 	ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c	ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c		ft_lstclear.c	ft_lstiter.c	ft_lstmap.c
-B_OBJ = $(B_SRC:.c=.o)
+B_OBJ	=	$(B_SRC:.c=.o)
 
 all: $(CHEADER) $(NAME)
 
