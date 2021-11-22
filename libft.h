@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 17:45:45 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/11/22 17:35:21 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/11/22 17:47:14 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ void	ft_putnbr_fd(int n, int fd);
 char	*ft_itoa(int n);
 char	*ft_utoa(unsigned int n);
 char	*ft_xtoa(unsigned int n);
+char	*ft_xto_uppercase_a(unsigned int n);
 
 #endif
