@@ -6,13 +6,13 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:03:33 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/11/22 17:07:23 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/11/22 17:19:28 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_digits(int n);
+static int	count_digits(unsigned int n);
 
 char	*ft_utoa(unsigned int n)
 {
@@ -33,7 +33,7 @@ char	*ft_utoa(unsigned int n)
 	return (s);
 }
 
-static int	count_digits(int n)
+static int	count_digits(unsigned int n)
 {
 	int	digit_count;
 
