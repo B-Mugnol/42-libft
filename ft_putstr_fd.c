@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 13:49:55 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/10/11 18:09:19 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/11/25 18:12:57 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)
+	{
+		write(fd, "(null)", 6);
 		return ;
+	}
 	while (*s != '\0')
 	{
 		write(fd, s, 1);
