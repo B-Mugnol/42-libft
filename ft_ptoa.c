@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 18:42:56 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/11/25 22:35:10 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/11/25 22:47:06 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_ptoa(void *p)
 		return (NULL);
 	*s = '0';
 	*(s + 1) = 'x';
-	*(s + digit_count) = '\0';
+	*(s + digit_count + 2) = '\0';
 	while (digit_count > 0)
 	{
 		if (n % 16 < 10)
