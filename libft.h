@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 17:45:45 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/11/25 18:44:15 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/11/25 22:35:25 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ char	*ft_itoa(int n);
 char	*ft_utoa(unsigned int n);
 char	*ft_xtoa(unsigned int n);
 char	*ft_xto_uppercase_a(unsigned int n);
-char	*ft_ptoa(unsigned long int n);
+char	*ft_ptoa(void *p);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 18:42:56 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/11/25 22:31:12 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/11/25 22:35:10 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 static int	count_digits(unsigned long int n);
 
-char	*ft_ptoa(unsigned long int n)
+char	*ft_ptoa(void *p)
 {
-	char	*s;
-	int		digit_count;
+	unsigned long int	n;
+	char				*s;
+	int					digit_count;
 
+	n = (unsigned long int)(p);
 	if (!n)
 		return (NULL);
 	digit_count = count_digits(n);
