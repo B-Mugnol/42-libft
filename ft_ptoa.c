@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 18:42:56 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/11/25 18:51:00 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2021/11/25 22:31:12 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_ptoa(unsigned long int n)
 	char	*s;
 	int		digit_count;
 
+	if (!n)
+		return (NULL);
 	digit_count = count_digits(n);
 	s = malloc(sizeof(char) * (digit_count + 3));
 	if (!s)
