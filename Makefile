@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/11/25 18:55:30 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/11/26 02:49:44 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ $(CHEADER): $(HEADER)
 bonus: $(OBJ) $(B_OBJ)
 	$(AR) $(NAME) $^
 
-$(B_OBJ): $(B_SRC) $(CHEADER)
+$(B_OBJ): $(B_SRC)
 	$(CC) $(CFLAGS) -c $^
 
 norm:
