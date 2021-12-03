@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/12/03 15:56:37 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/12/03 19:01:34 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CFLAGS	:=			\
 			-Wall	\
 			-Wextra	\
 			-Werror
-#	(Turns on all warning flags, including extra, and turns warning into errors)
+#	(Turn on all warning flags and extra warnings, treat warnings as errors)
 
 # -----------------------ARCHIVER--------------------------------------------- #
 
@@ -40,12 +40,12 @@ ARFLAGS	:=	rcs
 
 # Headers files
 HEADER_FILE	:=	libft.h
-# Headers directory
+# Headers directories
 HEADER_DIR	:=	./inc
-# Header file path
-HEADER		:=	$(addprefix $(HEADER_DIR)/, $(HEADER_FILE))
+# Header files path
+HEADER		:=	$(foreach directory, $(HEADER_DIR), $(directory)/$(HEADER_FILE))
 # Headers inclusion
-INCLUDE		:=	$(addprefix -I, $(HEADER_DIR))
+INCLUDE		:=	$(foreach directory, $(HEADER_DIR), -I$(directory))
 
 # -----------------------PRECOMPILED HEADERS---------------------------------- #
 
@@ -60,6 +60,8 @@ C_INCLUDE		:=	$(addprefix -I, $(C_HEADER_DIR))
 
 # -----------------------SOURCES---------------------------------------------- #
 
+# Main source directory
+MAIN_SRC_DIR	:= ./src
 # Source files
 SRC_FILE	:=	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c\
 				ft_isprint.c	ft_toupper.c	ft_tolower.c
@@ -73,18 +75,20 @@ SRC_FILE	+=	ft_atoi.c		ft_substr.c		ft_strjoin.c	ft_strtrim.c\
 				ft_split.c		ft_strmapi.c	ft_striteri.c	ft_putchar_fd.c\
 				ft_putstr_fd.c	ft_putendl_fd.c	ft_putnbr_fd.c
 # Source directory
-SRC_DIR		:=	./src
+SRC_DIR		:=	$(MAIN_SRC_DIR)/basic
 # Sources
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILE))
 
 # -----------------------OBJECTS---------------------------------------------- #
 
+# Main object directory
+MAIN_OBJ_DIR	:= ./obj
 # Object files
-OBJ_FILE	:=	$(SRC_FILE:.c=.o)
+OBJ_FILE		:=	$(SRC_FILE:.c=.o)
 # Object directory
-OBJ_DIR		:=	./obj/basic
+OBJ_DIR			:=	$(MAIN_OBJ_DIR)/basic
 # Objects
-OBJ			:=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILE))
+OBJ				:=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILE))
 
 # -----------------------BONUS SOURCES---------------------------------------- #
 
@@ -93,7 +97,7 @@ B_SRC_FILE	:=	ft_lstnew.c	ft_lstsize.c	ft_lstlast.c				\
 				ft_lstadd_front.c	ft_lstadd_back.c	ft_lstdelone.c	\
 				ft_lstclear.c	ft_lstiter.c	ft_lstmap.c
 # Bonus source directory
-B_SRC_DIR	:=	./src
+B_SRC_DIR	:=	$(MAIN_SRC_DIR)/bonus
 # Bonus sources
 B_SRC		:= $(addprefix $(B_SRC_DIR)/, $(B_SRC_FILE))
 
@@ -102,7 +106,7 @@ B_SRC		:= $(addprefix $(B_SRC_DIR)/, $(B_SRC_FILE))
 # Bonus object files
 B_OBJ_FILE	:=	$(B_SRC_FILE:.c=.o)
 # Bonus object directory
-B_OBJ_DIR	:=	./obj/bonus
+B_OBJ_DIR	:=	$(MAIN_OBJ_DIR)/bonus
 # Bonus objects
 B_OBJ		:=	$(addprefix $(B_OBJ_DIR)/, $(B_OBJ_FILE))
 
@@ -119,18 +123,20 @@ all: $(NAME)
 
 # 							LIBRARY MAKING
 # Lib making based on SRC
-basic $(NAME): $(OBJ)
+$(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $@ $^
+
+basic: $(NAME)
 
 # Lib making based on SRC and B_SRC
 bonus: $(NAME) $(B_OBJ)
-	$(AR) $(ARFLAGS) $< $(B_OBJ)
+	$(AR) $(ARFLAGS) $^
 
 
 # 							COMPILING
 # Header precompiling
 $(C_HEADER): $(HEADER) | $(C_HEADER_DIR)
-	$(CC) $(CFLAGS) -o $@ $<
+	@$(CC) $(CFLAGS) -o $@ $<
 
 # Compiling SRC into OBJ
 $(OBJ): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(SRC) $(C_HEADER) | $(OBJ_DIR)
@@ -154,10 +160,7 @@ norm:
 
 # Clean: removes objects, precompiled headers and created directories
 clean:
-	@rm -rf $(OBJ_DIR) $(B_OBJ_DIR) $(C_HEADER_DIR)
-	@rm -f $(wildcard $(OBJ_FILE))
-	@rm -f $(wildcard $(B_OBJ_FILE))
-	@rm -f $(wildcard $(C_HEADER_FILE))
+	@rm -rf $(MAIN_OBJ_DIR) $(C_HEADER_DIR)
 
 # Full clean: same as 'clean', but removing NAME as well
 fclean: clean

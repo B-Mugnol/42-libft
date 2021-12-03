@@ -9,7 +9,9 @@
 
 # Source ('ft_' preffix)
 !src
-!src/ft_*.c
+!src/basic
+!src/bonus
+!src/*/ft_*.c
 
 # Makefile
 !Makefile
