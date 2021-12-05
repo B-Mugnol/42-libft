@@ -6,11 +6,13 @@
 # Headers
 !inc
 !inc/libft.h
+!inc/ft_printf.h
 
 # Source ('ft_' preffix)
 !src
 !src/basic
 !src/bonus
+!src/ft_printf
 !src/*/ft_*.c
 
 # Makefile

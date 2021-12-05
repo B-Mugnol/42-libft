@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/12/05 17:38:47 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/12/05 18:19:45 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 # Generated static library name
 NAME	:=	libft.a
 B_NAME	:= 	libftbonus.a
-
+P_NAME	:=	libftprintf.a
 # -----------------------COMPILER--------------------------------------------- #
 
 # C Compiler
@@ -111,11 +111,30 @@ B_OBJ_DIR	:=	$(MAIN_OBJ_DIR)/bonus
 # Bonus objects
 B_OBJ		:=	$(addprefix $(B_OBJ_DIR)/, $(B_OBJ_FILE))
 
+# -----------------------PRINTF----------------------------------------------- #
+
+P_HEADER_FILE	:=	ft_printf.h
+P_HEADER_DIR	:=	./inc
+P_HEADER		:=	./inc/ft_printf.h
+
+P_C_HEADER_FILE	:=	$(P_HEADER_FILE:.h=.h.gch)
+P_C_HEADER_DIR	:=	./pre
+P_C_HEADER		:=	$(addprefix $(P_C_HEADER_DIR)/, $(P_C_HEADER_FILE))
+P_C_INCLUDE		:=	$(addprefix -I, $(P_C_HEADER_DIR))
+
+P_SRC_FILE	:=	ft_printf.c
+P_SRC_DIR	:=	$(MAIN_SRC_DIR)/ft_printf
+P_SRC		:=	$(addprefix $(P_SRC_DIR)/, $(P_SRC_FILE))
+
+P_OBJ_FILE	:=	$(P_SRC_FILE:.c=.o)
+P_OBJ_DIR	:=	$(MAIN_OBJ_DIR)/ft_printf
+P_OBJ		:=	$(addprefix $(P_OBJ_DIR)/, $(P_OBJ_FILE))
+
 # ---------------------------------------------------------------------------- #
 # -----------------------RULES------------------------------------------------ #
 # ---------------------------------------------------------------------------- #
 
-.PHONY: all basic bonus norm clean fclean re
+.PHONY: all basic bonus printf norm clean fclean re
 
 
 # Creates the target NAME
@@ -135,6 +154,13 @@ $(B_NAME): $(OBJ) $(B_OBJ)
 
 bonus: $(B_NAME)
 
+# Lib making based on SRC, B_SRC and P_SRC
+$(P_NAME): $(OBJ) $(B_OBJ) $(P_OBJ)
+	$(AR) $(ARFLAGS) $@ $^
+
+printf: $(P_NAME)
+
+
 # 							COMPILING
 # Header precompiling
 $(C_HEADER): $(HEADER) | $(C_HEADER_DIR)
@@ -148,10 +174,18 @@ $(OBJ): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(SRC) $(C_HEADER) | $(OBJ_DIR)
 $(B_OBJ): $(B_OBJ_DIR)/%.o: $(B_SRC_DIR)/%.c $(B_SRC) $(C_HEADER) | $(B_OBJ_DIR)
 	@$(CC) $(CFLAGS) $(C_INCLUDE) -o $@ -c $<
 
+# Compiling P_SRC into P_OBJ
+$(P_OBJ): $(P_OBJ_DIR)/%.o: $(P_SRC_DIR)/%.c $(P_SRC) $(C_HEADER) $(P_C_HEADER) | $(P_OBJ_DIR)
+	@$(CC) $(CFLAGS) $(C_INCLUDE) $(P_C_INCLUDE) -o $@ -c $<
+
+# Separate header precompiling for printf rule
+$(P_C_HEADER): $(P_HEADER) | $(P_C_HEADER_DIR)
+	@$(CC) $(CFLAGS) -o $@ $<
+
 
 # 							DIRECTORY MAKING
 # Dir making
-$(OBJ_DIR) $(B_OBJ_DIR) $(C_HEADER_DIR):
+$(OBJ_DIR) $(B_OBJ_DIR) $(P_OBJ_DIR) $(C_HEADER_DIR):
 	@mkdir -p $@
 
 
@@ -164,9 +198,9 @@ norm:
 clean:
 	@rm -rf $(MAIN_OBJ_DIR) $(C_HEADER_DIR)
 
-# Full clean: same as 'clean', but removing NAME as well
+# Full clean: same as 'clean', but removing the generated libraries
 fclean: clean
-	@rm -rf $(NAME) $(B_NAME)
+	@rm -rf $(NAME) $(B_NAME) $(P_NAME)
 
 # Remake: full cleans and runs 'all' rule
 re: fclean all
