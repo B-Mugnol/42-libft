@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2021/12/03 19:01:34 by bmugnol-         ###   ########.fr        #
+#    Updated: 2021/12/05 17:38:47 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@
 
 # Generated static library name
 NAME	:=	libft.a
+B_NAME	:= 	libftbonus.a
 
 # -----------------------COMPILER--------------------------------------------- #
 
@@ -43,7 +44,7 @@ HEADER_FILE	:=	libft.h
 # Headers directories
 HEADER_DIR	:=	./inc
 # Header files path
-HEADER		:=	$(foreach directory, $(HEADER_DIR), $(directory)/$(HEADER_FILE))
+HEADER		:=	./inc/libft.h
 # Headers inclusion
 INCLUDE		:=	$(foreach directory, $(HEADER_DIR), -I$(directory))
 
@@ -129,9 +130,10 @@ $(NAME): $(OBJ)
 basic: $(NAME)
 
 # Lib making based on SRC and B_SRC
-bonus: $(NAME) $(B_OBJ)
-	$(AR) $(ARFLAGS) $^
+$(B_NAME): $(OBJ) $(B_OBJ)
+	$(AR) $(ARFLAGS) $@ $^
 
+bonus: $(B_NAME)
 
 # 							COMPILING
 # Header precompiling
@@ -164,7 +166,7 @@ clean:
 
 # Full clean: same as 'clean', but removing NAME as well
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) $(B_NAME)
 
 # Remake: full cleans and runs 'all' rule
 re: fclean all
