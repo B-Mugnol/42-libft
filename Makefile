@@ -17,6 +17,7 @@
 NAME	:=	libft.a
 B_NAME	:= 	libftbonus.a
 P_NAME	:=	libftprintf.a
+
 # -----------------------COMPILER--------------------------------------------- #
 
 # C Compiler
