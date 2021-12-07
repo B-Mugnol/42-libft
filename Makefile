@@ -139,7 +139,7 @@ P_OBJ		:=	$(addprefix $(P_OBJ_DIR)/, $(P_OBJ_FILE))
 
 
 # Creates the target NAME
-all: $(NAME)
+all: $(NAME) $(B_NAME) $(P_NAME)
 
 
 # 							LIBRARY MAKING
@@ -193,13 +193,13 @@ $(OBJ_DIR) $(B_OBJ_DIR) $(P_OBJ_DIR) $(C_HEADER_DIR):
 #							Q.O.L. RULES
 # Norm: checks code for norm errors
 norm:
-	norminette $(SRC) $(B_SRC) $(HEADER_FILE)
+	norminette $(SRC) $(B_SRC) $(B_SRC) $(HEADER_FILE) $(P_HEADER)
 
-# Clean: removes objects, precompiled headers and created directories
+# Clean: removes objects' and precompiled headers' directories
 clean:
 	@rm -rf $(MAIN_OBJ_DIR) $(C_HEADER_DIR)
 
-# Full clean: same as 'clean', but removing the generated libraries
+# Full clean: same as 'clean', but removing the generated libraries as well
 fclean: clean
 	@rm -rf $(NAME) $(B_NAME) $(P_NAME)
 
