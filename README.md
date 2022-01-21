@@ -16,4 +16,4 @@ By exhaustively checking the functions' documentation, understanding its paramet
 
 ## What
 #### ... the duck is that, commits directly on master??
-Yup, and that was on purpose. I had to get familiarized with a lot of new tools and concepts while also testing those newly acquired knowledge, so I just couldn't bother to make my commit history look good.
+Yup, and that was on purpose. I had to get familiarized with a lot of new tools and concepts while also testing those newly acquired pieces of knowledge, so I just couldn't bother to make my commit history look good.
