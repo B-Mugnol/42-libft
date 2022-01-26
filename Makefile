@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/01/26 21:32:31 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/01/26 21:52:38 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -194,7 +194,7 @@ $(OBJ_DIR) $(B_OBJ_DIR) $(P_OBJ_DIR) $(C_HEADER_DIR):
 #							Q.O.L. RULES
 # Norm: checks code for norm errors
 norm:
-	norminette $(SRC) $(B_SRC) $(B_SRC) $(HEADER_FILE) $(P_HEADER)
+	norminette $(SRC) $(B_SRC) $(B_SRC) $(HEADER) $(P_HEADER)
 
 # Clean: removes objects' and precompiled headers' directories
 clean:
