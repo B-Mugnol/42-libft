@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 13:53:58 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/10/11 18:09:24 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/01/26 19:05:03 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	if (!s)
-		return ;
-	while (*s != '\0')
-	{
-		write(fd, s, 1);
-		s++;
-	}
+		write(fd, "(null)", 6);
+	else
+		write(fd, s, ft_strlen(s));
 	write(fd, "\n", 1);
 }
