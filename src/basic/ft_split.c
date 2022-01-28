@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 13:24:20 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/10/08 12:20:13 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/01/28 23:03:31 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	dest = ft_calloc(count_words(s, c) + 1, sizeof (char *));
+	dest = malloc((count_words(s, c) + 1) * sizeof (char *));
 	if (!dest)
 		return (NULL);
 	i = 0;
