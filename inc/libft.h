@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 17:45:45 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/01/26 21:39:27 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/02/08 19:49:45 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ char	*ft_xtoa(unsigned int n);
 char	*ft_xto_uppercase_a(unsigned int n);
 char	*ft_ptoa(void *p);
 
-void	ft_null_free(char **p);
 char	*get_next_line(int fd);
+void	ft_null_free(void **p);
+void	ft_free_matrix(void ***p, size_t line_count);
 
 #endif

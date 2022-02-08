@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/01/26 21:52:38 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/02/08 18:48:06 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ SRC_FILE	+=	ft_itoa.c		ft_utoa.c		ft_ptoa.c		ft_xtoa.c	\
 SRC_FILE	+=	ft_atoi.c		ft_substr.c		ft_strjoin.c	ft_strtrim.c\
 				ft_split.c		ft_strmapi.c	ft_striteri.c	ft_putchar_fd.c\
 				ft_putstr_fd.c	ft_putendl_fd.c	ft_putnbr_fd.c
-SRC_FILE	+=	ft_null_free.c	get_next_line.c
+SRC_FILE	+=	get_next_line.c	ft_null_free.c	ft_free_matrix.c
 # Source directory
 SRC_DIR		:=	$(MAIN_SRC_DIR)/basic
 # Sources
@@ -96,9 +96,9 @@ OBJ				:=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILE))
 # -----------------------BONUS SOURCES---------------------------------------- #
 
 # Bonus source files
-B_SRC_FILE	:=	ft_lstnew.c	ft_lstsize.c	ft_lstlast.c				\
-				ft_lstadd_front.c	ft_lstadd_back.c	ft_lstdelone.c	\
-				ft_lstclear.c	ft_lstiter.c	ft_lstmap.c
+B_SRC_FILE	:=	ft_lstnew.c	ft_lstsize.c	ft_lstlast.c
+B_SRC_FILE	+=	ft_lstadd_front.c	ft_lstadd_back.c	ft_lstdelone.c
+B_SRC_FILE	+=	ft_lstclear.c	ft_lstiter.c	ft_lstmap.c
 # Bonus source directory
 B_SRC_DIR	:=	$(MAIN_SRC_DIR)/bonus
 # Bonus sources
