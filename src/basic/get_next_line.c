@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 16:22:36 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/01/26 21:44:36 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/02/10 19:03:13 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*get_next_line(int fd)
 		if (backup && ft_strlen(backup))
 			aux = ft_strdup(backup);
 		if (backup)
-			ft_null_free(&backup);
+			ft_null_free((void *)(&backup));
 		free(buffer);
 		return (aux);
 	}
@@ -51,7 +51,7 @@ static char	*build_line(int fd, char **acc, char **buffer)
 	if (aux)
 		return (aux);
 	aux = ft_strjoin(*acc, *buffer);
-	ft_null_free(acc);
+	ft_null_free((void *)(acc));
 	free(*buffer);
 	*acc = ft_strdup(aux);
 	free(aux);
@@ -92,14 +92,14 @@ static char	*nl_in_buffer(char **acc, char **buffer)
 		return (NULL);
 	temp = ft_substr(*buffer, 0, nl - *buffer + 1);
 	aux = ft_strjoin(*acc, temp);
-	ft_null_free(&temp);
+	ft_null_free((void *)(&temp));
 	if (nl == *buffer || *(nl + 1) != '\0')
 	{
 		free(*acc);
 		*acc = ft_strdup(nl + 1);
 	}
 	else
-		ft_null_free(acc);
+		ft_null_free((void *)(acc));
 	free(*buffer);
 	return (aux);
 }
@@ -118,7 +118,7 @@ static ssize_t	validated_read(int fd, char **acc, char **buffer)
 	{
 		free(*buffer);
 		if (*acc)
-			ft_null_free(acc);
+			ft_null_free((void *)(acc));
 		return (-1);
 	}
 	*(*buffer + read_val) = '\0';
