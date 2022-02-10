@@ -6,9 +6,11 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:02:33 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/02/08 18:47:14 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/02/10 19:03:49 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 // Matrix is expected to be NULL terminated.
 void	ft_free_matrix(void ***p, size_t line_count)
