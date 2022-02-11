@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:02:33 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/02/10 19:03:49 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/02/11 23:24:12 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,6 @@ void	ft_free_matrix(void ***p, size_t line_count)
 		ft_null_free(*p + i);
 		i++;
 	}
+	free(*p);
+	*p = NULL;
 }
