@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/02/08 18:48:06 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/02/11 20:36:57 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,8 @@ SRC_FILE	+=	ft_itoa.c		ft_utoa.c		ft_ptoa.c		ft_xtoa.c	\
 SRC_FILE	+=	ft_atoi.c		ft_substr.c		ft_strjoin.c	ft_strtrim.c\
 				ft_split.c		ft_strmapi.c	ft_striteri.c	ft_putchar_fd.c\
 				ft_putstr_fd.c	ft_putendl_fd.c	ft_putnbr_fd.c
-SRC_FILE	+=	get_next_line.c	ft_null_free.c	ft_free_matrix.c
+SRC_FILE	+=	get_next_line.c	ft_null_free.c	ft_free_matrix.c\
+				ft_strmerge.c
 # Source directory
 SRC_DIR		:=	$(MAIN_SRC_DIR)/basic
 # Sources
