@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 16:22:36 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/02/10 19:03:13 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/02/26 19:50:21 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ static ssize_t	validated_read(int fd, char **acc, char **buffer)
 {
 	ssize_t		read_val;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || fd > MAX_FD)
+	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (-1);
 	*buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!*buffer)
