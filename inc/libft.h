@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 17:45:45 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/02/19 20:58:51 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:00:17 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t size);
 char	*ft_strdup(const char *s);
 
 int		ft_atoi(const char *s);
+int		ft_atoi_base(char *str, char *base);
 void	*ft_calloc(size_t nmemb, size_t size);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
