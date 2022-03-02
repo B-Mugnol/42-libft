@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/02/28 18:05:22 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/03/02 20:02:21 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -147,19 +147,19 @@ all: $(NAME) $(B_NAME) $(P_NAME)
 # 							LIBRARY MAKING
 # Lib making based on SRC
 $(NAME): $(OBJ)
-	$(AR) $(ARFLAGS) $@ $^
+	@$(AR) $(ARFLAGS) $@ $^
 
 basic: $(NAME)
 
 # Lib making based on SRC and B_SRC
 $(B_NAME): $(OBJ) $(B_OBJ)
-	$(AR) $(ARFLAGS) $@ $^
+	@$(AR) $(ARFLAGS) $@ $^
 
 bonus: $(B_NAME)
 
 # Lib making based on SRC, B_SRC and P_SRC
 $(P_NAME): $(OBJ) $(B_OBJ) $(P_OBJ)
-	$(AR) $(ARFLAGS) $@ $^
+	@$(AR) $(ARFLAGS) $@ $^
 
 printf: $(P_NAME)
 
@@ -195,7 +195,8 @@ $(OBJ_DIR) $(B_OBJ_DIR) $(P_OBJ_DIR) $(C_HEADER_DIR):
 #							Q.O.L. RULES
 # Norm: checks code for norm errors
 norm:
-	norminette $(SRC) $(B_SRC) $(B_SRC) $(HEADER) $(P_HEADER)
+	@norminette $(SRC) $(B_SRC) $(B_SRC) $(HEADER) $(P_HEADER) | grep "Error"\
+	| cat
 
 # Clean: removes objects' and precompiled headers' directories
 clean:
