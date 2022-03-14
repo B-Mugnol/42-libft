@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
+/*   ft_free_char_matrix.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 18:02:33 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/03/14 17:39:02 by bmugnol-         ###   ########.fr       */
+/*   Created: 2022/03/14 17:34:19 by bmugnol-          #+#    #+#             */
+/*   Updated: 2022/03/14 17:57:29 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "libft.h"
 
 // Matrix is expected to be NULL terminated.
-void	ft_free_matrix(void ***p, size_t line_count)
+void	ft_free_char_matrix(char ***m)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < line_count && *(*p + i) != NULL)
+	while (*(*m + i) != NULL)
 	{
-		free(*(*p + i));
-		*(*p + i) = NULL;
+		free(*(*m + i));
+		*(*m + i) = NULL;
 		i++;
 	}
-	free(*p);
-	*p = NULL;
+	free(*m);
+	*m = NULL;
 }
