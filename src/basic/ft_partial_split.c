@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 22:19:43 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/03/14 18:41:37 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/03/15 01:18:37 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static char const	*separator(char const *s, char **dest, char delimiter,
 		else if (s[i + k] == '\0')
 			*dest = ft_substr(s, i + 1, k - 1);
 		else
-			*dest = ft_substr(s, i++, k - 1);
+			*dest = ft_substr(s, ++i, k - 1);
 		return (s + i + k);
 	}
 	while (s[i + k] != delimiter && s[i + k] != stopper && s[i + k] != '\0')
