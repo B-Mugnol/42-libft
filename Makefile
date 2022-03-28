@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/03/14 18:42:22 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/03/28 18:19:24 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,9 +98,9 @@ OBJ				:=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILE))
 # -----------------------BONUS SOURCES---------------------------------------- #
 
 # Bonus source files
-B_SRC_FILE	:=	ft_lstnew.c	ft_lstsize.c	ft_lstlast.c
+B_SRC_FILE	:=	ft_lstnew.c			ft_lstsize.c	ft_lstlast.c
 B_SRC_FILE	+=	ft_lstadd_front.c	ft_lstadd_back.c	ft_lstdelone.c
-B_SRC_FILE	+=	ft_lstclear.c	ft_lstiter.c	ft_lstmap.c
+B_SRC_FILE	+=	ft_lstclear.c		ft_lstiter.c	ft_lstmap.c
 # Bonus source directory
 B_SRC_DIR	:=	$(MAIN_SRC_DIR)/bonus
 # Bonus sources
@@ -171,15 +171,15 @@ $(C_HEADER): $(HEADER) | $(C_HEADER_DIR)
 	@$(CC) $(CFLAGS) -o $@ $<
 
 # Compiling SRC into OBJ
-$(OBJ): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(SRC) $(C_HEADER) | $(OBJ_DIR)
+$(OBJ): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(C_HEADER) | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(C_INCLUDE) -o $@ -c $<
 
 # Compiling B_SRC into B_OBJ
-$(B_OBJ): $(B_OBJ_DIR)/%.o: $(B_SRC_DIR)/%.c $(B_SRC) $(C_HEADER) | $(B_OBJ_DIR)
+$(B_OBJ): $(B_OBJ_DIR)/%.o: $(B_SRC_DIR)/%.c $(C_HEADER) | $(B_OBJ_DIR)
 	@$(CC) $(CFLAGS) $(C_INCLUDE) -o $@ -c $<
 
 # Compiling P_SRC into P_OBJ
-$(P_OBJ): $(P_OBJ_DIR)/%.o: $(P_SRC_DIR)/%.c $(P_SRC) $(C_HEADER) $(P_C_HEADER) | $(P_OBJ_DIR)
+$(P_OBJ): $(P_OBJ_DIR)/%.o: $(P_SRC_DIR)/%.c $(C_HEADER) $(P_C_HEADER) | $(P_OBJ_DIR)
 	@$(CC) $(CFLAGS) $(C_INCLUDE) $(P_C_INCLUDE) -o $@ -c $<
 
 # Separate header precompiling for printf rule
