@@ -10,10 +10,7 @@
 
 # Source ('ft_' preffix)
 !src
-!src/basic
-!src/basic/get_next_line.c
-!src/bonus
-!src/ft_printf
+!src/*
 !src/*/ft_*.c
 
 # Makefile

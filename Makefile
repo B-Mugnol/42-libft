@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/04/02 05:23:27 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/04/04 19:05:06 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,10 @@ C_INCLUDE		:=	$(addprefix -I, $(C_HEADER_DIR))
 
 # -----------------------SOURCES---------------------------------------------- #
 # Source directories
-SRC_DIR		:=	src src/basic src/bonus src/ft_printf
+SRC_DIR		:=	src src/ctype src/ft_printf src/libft_put src/libft_str
+SRC_DIR		+=	src/libft_str src/linked_list src/misc src/stdlib
+SRC_DIR		+=	src/string_bsd src/string_mem src/string_str src/strings
+SRC_DIR		+=	src/to_str
 # Files:
 ####<ctype.h>
 SRC_FILE	:=	ft_isalpha.c	ft_isalnum.c	ft_isascii.c	ft_isdigit.c\
@@ -62,7 +65,8 @@ SRC_FILE	+=	ft_memchr.c		ft_memcmp.c		ft_memcpy.c		ft_memmove.c\
 				ft_memset.c 	# Memory
 SRC_FILE	+=	ft_strlen.c		ft_strdup.c		ft_strchr.c		ft_strrchr.c\
 				ft_strncmp.c	# Strings
-SRC_FILE	+=	ft_strlcpy.c	ft_strlcat.c	ft_strnstr.c	# <bsd/string.h>
+SRC_FILE	+=	ft_strlcpy.c	ft_strlcat.c								\
+				ft_strnstr.c	# <bsd/string.h>
 ###	Libft specific
 SRC_FILE	+=	ft_substr.c		ft_strjoin.c	ft_strtrim.c	ft_split.c	\
 				ft_strmapi.c	ft_striteri.c
