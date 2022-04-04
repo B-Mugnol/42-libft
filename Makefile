@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/04/02 05:01:17 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/04/02 05:23:27 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,13 +100,13 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(AR) $(ARFLAGS) $@ $^
 
-# Header precompiling
-$(C_HEADER): $(C_HEADER_DIR)/%.h.gch: %.h $(HEADER_FILE) | $(C_HEADER_DIR)
-	@$(CC) $(CFLAGS) -o $@ $<
-
 # Compiling SRC_FILE into OBJ
 $(OBJ): $(OBJ_DIR)/%.o: %.c $(C_HEADER) | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(C_INCLUDE) -o $@ -c $<
+
+# Header precompiling
+$(C_HEADER): $(C_HEADER_DIR)/%.h.gch: %.h $(HEADER_FILE) | $(C_HEADER_DIR)
+	@$(CC) $(CFLAGS) -o $@ $<
 
 # Directory making
 $(OBJ_DIR) $(C_HEADER_DIR):
@@ -120,7 +120,7 @@ norm:
 clean:
 	@rm -rf $(OBJ_DIR) $(C_HEADER_DIR)
 
-# Full clean: same as 'clean', but removing the generated libraries as well
+# Full clean: same as 'clean', but removes the generated libraries as well
 fclean: clean
 	@rm -rf $(NAME)
 
