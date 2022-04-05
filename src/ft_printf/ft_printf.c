@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 19:10:17 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/03/02 20:46:32 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/04/05 21:06:32 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ static const char	*exception_handler(const char *format, va_list ap, int *i)
 
 static int	is_printf_flag(char c)
 {
-	if (ft_strchr("aAcCdeEfFgGhiIjlLmnopqstuxXzZ# +-0123456789.\'", c))
+	if (ft_strchr(PRINTF_FLAGS, c))
 		return (1);
 	return (0);
 }
