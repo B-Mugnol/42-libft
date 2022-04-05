@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/04/04 19:05:06 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/04/05 00:37:10 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,10 +48,10 @@ C_INCLUDE		:=	$(addprefix -I, $(C_HEADER_DIR))
 
 # -----------------------SOURCES---------------------------------------------- #
 # Source directories
-SRC_DIR		:=	src src/ctype src/ft_printf src/libft_put src/libft_str
-SRC_DIR		+=	src/libft_str src/linked_list src/misc src/stdlib
-SRC_DIR		+=	src/string_bsd src/string_mem src/string_str src/strings
-SRC_DIR		+=	src/to_str
+SRC_DIR		:=	src src/ctype	src/ft_printf		src/libft_put
+SRC_DIR		+=	src/libft_str	src/linked_list 	src/stdlib
+SRC_DIR		+=	src/string_mem	src/string_str		src/strings
+SRC_DIR		+=	src/string_bsd	src/custom/misc		src/custom/to_str
 # Files:
 ####<ctype.h>
 SRC_FILE	:=	ft_isalpha.c	ft_isalnum.c	ft_isascii.c	ft_isdigit.c\
