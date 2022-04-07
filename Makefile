@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/04/07 18:40:21 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/04/07 21:20:02 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,17 +32,15 @@ ARFLAGS	:=	rcs
 
 # -----------------------HEADERS---------------------------------------------- #
 # Headers files
-HEADER_FILE	:=	libft.h ft_printf.h
+HEADER	:=	libft.h ft_printf.h
 # Headers directories
 HEADER_DIR	:=	inc
 
 # -----------------------PRECOMPILED HEADERS---------------------------------- #
-# Compiled headers files
-C_HEADER_FILE	:=	$(HEADER_FILE:.h=.h.gch)
 # Compiled headers directory
 C_HEADER_DIR	:=	pre
-# Compiled headers file path
-C_HEADER		:=	$(addprefix $(C_HEADER_DIR)/, $(C_HEADER_FILE))
+# Compiled headers files
+C_HEADER		:=	$(HEADER:%.h=$(C_HEADER_DIR)/%.h.gch)
 # Compiled headers inclusion
 C_INCLUDE		:=	$(addprefix -I, $(C_HEADER_DIR))
 
@@ -52,7 +50,7 @@ SRC_DIR		:=	src src/ctype	src/ft_printf		src/libft_put
 SRC_DIR		+=	src/libft_str	src/linked_list 	src/stdlib
 SRC_DIR		+=	src/string_mem	src/string_str		src/strings
 SRC_DIR		+=	src/string_bsd	src/custom/misc		src/custom/to_str
-# Files:
+# Source files
 ####<ctype.h>
 SRC	:=	ft_isalpha.c	ft_isalnum.c	ft_isascii.c	ft_isdigit.c\
 		ft_isprint.c	ft_toupper.c	ft_tolower.c
@@ -110,7 +108,7 @@ $(OBJ): $(OBJ_DIR)/%.o: %.c $(C_HEADER) | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(C_INCLUDE) -o $@ -c $<
 
 # Header precompiling
-$(C_HEADER): $(C_HEADER_DIR)/%.h.gch: %.h $(HEADER_FILE) | $(C_HEADER_DIR)
+$(C_HEADER): $(C_HEADER_DIR)/%.h.gch: %.h $(HEADER) | $(C_HEADER_DIR)
 	@$(CC) $(CFLAGS) -o $@ $<
 
 # Directory making
