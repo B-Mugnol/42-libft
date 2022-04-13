@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 19:10:17 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/04/05 21:06:32 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:44:09 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static const char	*format_handler(const char *format, va_list ap, int *i)
 	else if (*format != '%' && *format != 'c')
 		*i += 6;
 	if (s && *format != 's')
-		free(s);
+		ft_null_free((void *)(s));
 	return (format + 1);
 }
 
