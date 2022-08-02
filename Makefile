@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/04/13 23:18:13 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/07/28 19:04:28 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME	:=	libft.a
 
 # -----------------------COMPILER--------------------------------------------- #
 # C Compiler
-CC		:=	gcc
+CC		:=	clang
 # Compiler flags
 CFLAGS	:=	-Wall -Wextra -Werror
 #	(Turn on all warning flags and extra warnings, treat warnings as errors)
@@ -32,17 +32,19 @@ ARFLAGS	:=	rcs
 
 # -----------------------HEADERS---------------------------------------------- #
 # Headers files
-HEADER	:=	libft.h ft_printf.h
+HEADER		:=	libft.h ft_printf.h
 # Headers directories
 HEADER_DIR	:=	inc
+# Headers inclusion
+INCLUDE		:=	$(addprefix -I, $(HEADER_DIR))
 
 # -----------------------PRECOMPILED HEADERS---------------------------------- #
 # Compiled headers directory
-C_HEADER_DIR	:=	pre
+C_HEADER_DIR	:=	pch
 # Compiled headers files
 C_HEADER		:=	$(HEADER:%.h=$(C_HEADER_DIR)/%.h.gch)
 # Compiled headers inclusion
-C_INCLUDE		:=	$(addprefix -I, $(C_HEADER_DIR))
+C_INCLUDE		:=	$(addprefix -include-pch , $(C_HEADER))
 
 # -----------------------SOURCES---------------------------------------------- #
 # Source directories
@@ -105,7 +107,7 @@ $(NAME): $(OBJ)
 
 # Compiling SRC into OBJ
 $(OBJ): $(OBJ_DIR)/%.o: %.c $(C_HEADER) | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(C_INCLUDE) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $< $(INCLUDE) $(C_INCLUDE)
 
 # Header precompiling
 $(C_HEADER): $(C_HEADER_DIR)/%.h.gch: %.h $(HEADER) | $(C_HEADER_DIR)
