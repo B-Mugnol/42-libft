@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 13:28:33 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/01/28 23:07:35 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/08/27 01:06:53 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		substr = malloc(sizeof (char));
 		return (substr);
 	}
-	if (s_len - start < len)
+	if (s_len < start + len)
 		len = s_len - start;
 	substr = malloc((len + 1) * sizeof (char));
 	if (!substr)
