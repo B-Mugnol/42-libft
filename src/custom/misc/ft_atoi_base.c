@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:57:48 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/02/28 18:05:46 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/08/27 01:41:37 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_atoi_base(char *str, char *base)
 		return (0);
 	num = 0;
 	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
+	while (ft_isspace(*str))
 		str++;
 	while (*str == '+' || *str == '-')
 	{
@@ -52,7 +52,7 @@ static int	is_valid_base(char *base, int length)
 	{
 		if (*base == '+' || *base == '-')
 			return (0);
-		if (*base < 33 || *base > 126)
+		if (ft_isprint(*base) || ft_isspace(*base))
 			return (0);
 		if (find_char_index(base + 1, *base) >= 0)
 			return (0);
