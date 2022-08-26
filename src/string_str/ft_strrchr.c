@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 14:26:53 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/10/03 19:59:57 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:40:23 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strrchr(const char *s, int c)
 
 	cast_c = (char)(c);
 	len = ft_strlen(s);
-	if (cast_c == '\0')
-		return ((char *)(s + len));
 	while (len > 0)
 	{
 		if (*(s + len) == cast_c)
