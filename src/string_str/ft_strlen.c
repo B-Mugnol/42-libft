@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 17:55:06 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/29 22:15:48 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:38:26 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ size_t	ft_strlen(const char *s)
 	p = s;
 	while (*p != '\0')
 		p++;
-	return ((size_t)(p - s));
+	return (p - s);
 }
