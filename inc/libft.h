@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 17:45:45 by bmugnol-          #+#    #+#             */
-/*   Updated: 2022/04/13 23:14:43 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:00:06 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,6 @@ void		ft_null_free(void **p);
 void		ft_free_matrix(void ***p, size_t line_count);
 void		ft_free_char_matrix(char ***m);
 char		**ft_partial_split(char const *s, char delimiter, char stopper);
+char		**ft_word_split(char const *str, int (*is_delimiter)(char));
 
 #endif

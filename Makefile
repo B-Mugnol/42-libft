@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/07/28 19:04:28 by bmugnol-         ###   ########.fr        #
+#    Updated: 2022/08/27 00:01:10 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ SRC	+=	ft_itoa.c		ft_utoa.c		ft_ptoa.c		ft_xtoa.c	\
 		ft_xto_uppercase_a.c			# To string
 SRC	+=	get_next_line.c	ft_null_free.c	ft_free_matrix.c			\
 		ft_strmerge.c	ft_atoi_base.c	ft_free_char_matrix.c		\
-		ft_partial_split.c				# Miscellaneous
+		ft_word_split.c	ft_partial_split.c	# Miscellaneous
 ###	Linked list
 SRC	+=	ft_lstnew.c			ft_lstsize.c		ft_lstlast.c		\
 		ft_lstadd_front.c	ft_lstadd_back.c	ft_lstdelone.c		\
