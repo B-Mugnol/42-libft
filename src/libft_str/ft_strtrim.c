@@ -6,7 +6,7 @@
 /*   By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 15:24:16 by bmugnol-          #+#    #+#             */
-/*   Updated: 2021/09/29 22:26:48 by bmugnol-         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:59:56 by bmugnol-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	if (ft_strlen(set) == 0)
 	{
-		s2 = ft_substr(s1, 0, ft_strlen(s1));
-		if (!s2)
-			return (NULL);
+		s2 = ft_strdup(s1);
 		return (s2);
 	}
 	start = (char *)(s1);
@@ -34,7 +32,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (ft_strchr(set, *end) != NULL && end > start)
 		end--;
 	s2 = ft_substr(start, 0, end - start + 1);
-	if (!s2)
-		return (NULL);
 	return (s2);
 }
