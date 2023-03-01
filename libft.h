@@ -13,12 +13,21 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>	// size_t, malloc, free
+# include <stdlib.h>	// size_t, malloc, free functions, NULL definition
 # include <unistd.h>	// read, write
+# include <stdarg.h>	// va_start, va_arg, va_end functions, va_list struct
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 8192	// 2^13 bytes
 # endif
+
+# if __APPLE__
+#  define IS_MACOS 1
+# else
+#  define IS_MACOS 0
+# endif
+
+# define PRINTF_FLAGS	"aAcCdeEfFgGhiIjlLmnopqstuxXzZ# +-0123456789.\'"
 
 // Linked list struct:
 typedef struct s_list
@@ -102,5 +111,8 @@ void		ft_free_matrix(void ***p, size_t line_count);
 void		ft_free_char_matrix(char ***m);
 char		**ft_partial_split(char const *s, char delimiter, char stopper);
 char		**ft_word_split(char const *str, int (*is_delimiter)(char));
+
+// ft_printf function
+int			ft_printf(const char *format, ...);
 
 #endif

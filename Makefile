@@ -32,9 +32,9 @@ ARFLAGS	:=	rcs
 
 # -----------------------HEADERS---------------------------------------------- #
 # Headers files
-HEADER		:=	libft.h ft_printf.h
+HEADER		:=	libft.h
 # Headers directories
-HEADER_DIR	:=	inc
+HEADER_DIR	:=	.
 # Headers inclusion
 INCLUDE		:=	$(addprefix -I, $(HEADER_DIR))
 

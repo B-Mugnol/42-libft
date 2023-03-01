@@ -4,9 +4,7 @@
 
 # 	Except these specific files:
 # Headers
-!inc
-!inc/libft.h
-!inc/ft_printf.h
+!*.h
 
 # Source ('ft_' preffix)
 !src

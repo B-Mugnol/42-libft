@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static const char	*format_handler(const char *format, va_list ap, int *i);
 static const char	*exception_handler(const char *format, va_list ap, int *i);
