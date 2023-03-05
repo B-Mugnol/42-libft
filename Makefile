@@ -6,7 +6,7 @@
 #    By: bmugnol- <bmugnol-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 17:20:49 by bmugnol-          #+#    #+#              #
-#    Updated: 2022/08/27 00:46:23 by bmugnol-         ###   ########.fr        #
+#    Updated: 2023/03/01 13:55:57 by bmugnol-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,14 +37,6 @@ HEADER		:=	libft.h
 HEADER_DIR	:=	.
 # Headers inclusion
 INCLUDE		:=	$(addprefix -I, $(HEADER_DIR))
-
-# -----------------------PRECOMPILED HEADERS---------------------------------- #
-# Compiled headers directory
-C_HEADER_DIR	:=	pch
-# Compiled headers files
-C_HEADER		:=	$(HEADER:%.h=$(C_HEADER_DIR)/%.h.gch)
-# Compiled headers inclusion
-C_INCLUDE		:=	$(addprefix -include-pch , $(C_HEADER))
 
 # -----------------------SOURCES---------------------------------------------- #
 # Source directories
@@ -91,6 +83,12 @@ OBJ_DIR	:=	obj
 # Object files
 OBJ		:=	$(SRC:%.c=$(OBJ_DIR)/%.o)
 
+# -----------------------PRECOMPILED HEADERS---------------------------------- #
+# Compiled headers files
+C_HEADER		:=	$(HEADER:%.h=$(OBJ_DIR)/%.h.gch)
+# Compiled headers inclusion
+C_INCLUDE		:=	$(addprefix -include-pch , $(C_HEADER))
+
 # -----------------------VPATH------------------------------------------------ #
 vpath	%.h	$(HEADER_DIR)
 vpath	%.c	$(SRC_DIR)
@@ -110,11 +108,11 @@ $(OBJ): $(OBJ_DIR)/%.o: %.c $(C_HEADER) | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INCLUDE) $(C_INCLUDE)
 
 # Header precompiling
-$(C_HEADER): $(C_HEADER_DIR)/%.h.gch: %.h $(HEADER) | $(C_HEADER_DIR)
+$(C_HEADER): $(OBJ_DIR)/%.h.gch: %.h $(HEADER) | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -o $@ $<
 
 # Directory making
-$(OBJ_DIR) $(C_HEADER_DIR):
+$(OBJ_DIR):
 	@mkdir -p $@
 
 # Norm: checks code for norm errors
@@ -123,7 +121,7 @@ norm:
 
 # Clean: removes objects' and precompiled headers' directories
 clean:
-	@rm -rf $(OBJ_DIR) $(C_HEADER_DIR)
+	@rm -rf $(OBJ_DIR)
 
 # Full clean: same as 'clean', but removes the generated libraries as well
 fclean: clean
